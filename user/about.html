@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Dhurba Mobile</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff6b00'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='18' font-weight='bold' font-family='sans-serif'%3ED%3C/text%3E%3C/svg%3E">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+</head>
+<body>
+  <div class="sub-banner-strip" id="subBannerStrip"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">D</div>
+        <span>Dhurba Mobile</span>
+      </a>
+      <nav class="header-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="repairs.html">Repairs</a>
+        <a href="notifications.html">Updates</a>
+        <a href="about.html" class="active">About</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" onclick="window.location.href='notifications.html'" title="Notifications">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="badge" id="notifBadge"></span>
+        </button>
+        <button class="icon-btn theme-btn" onclick="toggleTheme()" title="Toggle theme">
+          <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-transition">
+    <section class="about-hero">
+      <div class="container">
+        <h1 id="aboutStoreName">About Dhurba Mobile</h1>
+        <p id="aboutTagline" style="color: var(--text-secondary);">Your trusted mobile phone destination</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-info">
+            <h2>Our Story</h2>
+            <p id="aboutDescription">Dhurba Mobile is a premier mobile phone retailer and repair service provider. We specialize in new smartphones, refurbished devices, second-hand phones, and quality accessories. Our team of certified technicians ensures every device meets the highest standards of quality and performance. With a commitment to customer satisfaction, we've served thousands of happy customers across the region.</p>
+            <div class="about-details">
+              <div class="about-detail-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <div>
+                  <h4>Phone</h4>
+                  <p id="aboutPhone">+91 98765 43210</p>
+                </div>
+              </div>
+              <div class="about-detail-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <div>
+                  <h4>Email</h4>
+                  <p id="aboutEmail">info@dhurbamobile.com</p>
+                </div>
+              </div>
+              <div class="about-detail-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <h4>Address</h4>
+                  <p id="aboutAddress">123 Main Street, City Center, Your City</p>
+                </div>
+              </div>
+              <div class="about-detail-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <div>
+                  <h4>Business Hours</h4>
+                  <p id="aboutHours">Mon - Sat: 10:00 AM - 8:00 PM, Sun: 11:00 AM - 6:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-map">
+            <iframe id="aboutMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.966309591936!2d-73.98608228459376!3d40.74844097932736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sin!4v1644261234567" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

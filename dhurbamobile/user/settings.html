@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Dhurba Mobile</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff6b00'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='18' font-weight='bold' font-family='sans-serif'%3ED%3C/text%3E%3C/svg%3E">
+  <script src="../sheets-api.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="../firebase-data.js"></script>
+  <script src="js/user-app.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+</head>
+<body>
+  <div class="sub-banner-strip" id="subBannerStrip"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">D</div>
+        <span>Dhurba Mobile</span>
+      </a>
+      <nav class="header-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="repairs.html">Repairs</a>
+        <a href="notifications.html">Updates</a>
+        <a href="about.html">About</a>
+        <a href="settings.html" class="active">Settings</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" onclick="window.location.href='notifications.html'" title="Notifications">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="badge" id="notifBadge"></span>
+        </button>
+        <button class="icon-btn theme-btn" onclick="toggleTheme()" title="Toggle theme">
+          <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-transition">
+    <section class="settings-hero">
+      <div class="container">
+        <h1>Settings</h1>
+        <p style="color: var(--text-secondary);">Customize your experience</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="settings-panel">
+          <div class="settings-group">
+            <h2>Theme</h2>
+            <div class="theme-options">
+              <div class="theme-option active" data-theme="light" onclick="setThemeMode('light')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <span>Light</span>
+              </div>
+              <div class="theme-option" data-theme="dark" onclick="setThemeMode('dark')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <span>Dark</span>
+              </div>
+              <div class="theme-option" data-theme="auto" onclick="setThemeMode('auto')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                <span>Auto</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h2>Accent Color</h2>
+            <div class="color-options">
+              <div class="color-opt active" style="background: #ff6b00;" data-color="#ff6b00" onclick="setAccentColor('#ff6b00')"></div>
+              <div class="color-opt" style="background: #6366f1;" data-color="#6366f1" onclick="setAccentColor('#6366f1')"></div>
+              <div class="color-opt" style="background: #22c55e;" data-color="#22c55e" onclick="setAccentColor('#22c55e')"></div>
+              <div class="color-opt" style="background: #3b82f6;" data-color="#3b82f6" onclick="setAccentColor('#3b82f6')"></div>
+              <div class="color-opt" style="background: #ec4899;" data-color="#ec4899" onclick="setAccentColor('#ec4899')"></div>
+              <div class="color-opt" style="background: #a855f7;" data-color="#a855f7" onclick="setAccentColor('#a855f7')"></div>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h2>Notifications</h2>
+            <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px;">Manage your notification preferences</p>
+            <button class="btn-primary product-card-btn" onclick="requestNotificationPermission()" style="border-radius: 8px;">Enable Push Notifications</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <div class="toast-container" id="toastContainer"></div>
+
+</body>
+</html>
