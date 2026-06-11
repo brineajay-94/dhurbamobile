@@ -1,3 +1,0 @@
-﻿User-agent: *
-Allow: /
-Sitemap: https://dhurbamobile.page.gd/sitemap.xml

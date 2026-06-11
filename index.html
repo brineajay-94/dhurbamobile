@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhurba Mobile - Best Mobile Shop in Gaighat | New & Refurbished Phones</title>
+  <meta name="description" content="Dhurba Mobile is the best mobile shop in Gaighat. Shop latest smartphones, refurbished phones, and accessories at the best prices. Authorized dealer for Samsung, Apple, Xiaomi, and more.">
+  <meta name="keywords" content="Dhurba mobile, dhurbamobile, Dhurba mobile gaighat, best mobile shop in gaighat, mobile store gaighat, smartphone shop gaighat, refurbished phones gaighat, samsung dealer gaighat, apple store gaighat">
+  <meta name="author" content="Dhurba Mobile">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dhurbamobile.page.gd/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff6b00'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='18' font-weight='bold' font-family='sans-serif'%3ED%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="Dhurba Mobile - Best Mobile Shop in Gaighat">
+  <meta property="og:description" content="Shop latest smartphones, refurbished phones, and accessories at Dhurba Mobile in Gaighat. Best prices on Samsung, Apple, Xiaomi & more.">
+  <meta property="og:url" content="https://dhurbamobile.page.gd/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_IN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dhurba Mobile - Best Mobile Shop in Gaighat">
+  <meta name="twitter:description" content="Latest smartphones, refurbished phones & accessories at best prices in Gaighat. Authorized dealer for top brands.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Dhurba Mobile",
+    "image": "https://dhurbamobile.page.gd/assets/logo.png",
+    "url": "https://dhurbamobile.page.gd/",
+    "telephone": "+91-XXXXXXXXXX",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Gaighat",
+      "addressRegion": "Nepal",
+      "addressCountry": "NP"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "",
+      "longitude": ""
+    },
+    "openingHours": "Mo-Su 09:00-20:00",
+    "priceRange": "$$",
+    "description": "Dhurba Mobile is the best mobile shop in Gaighat offering latest smartphones, refurbished phones, and accessories from top brands like Samsung, Apple, Xiaomi, Oppo, Vivo, and OnePlus at competitive prices.",
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Smartphones", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NPR" } } },
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Refurbished Phones", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NPR" } } },
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Mobile Accessories", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NPR" } } }
+    ]
+  }
+  </script>
+  <script src="sheets-api.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="firebase-data.js"></script>
+  <script src="js/user-app.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="sub-banner-strip" id="subBannerStrip"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">D</div>
+        <span>Dhurba Mobile</span>
+      </a>
+      <nav class="header-nav" id="mainNav">
+        <a href="index.html" class="active">Home</a>
+        <a href="repairs.html">Repairs</a>
+        <a href="notifications.html">Updates</a>
+        <a href="about.html">About</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" onclick="window.location.href='notifications.html'" title="Notifications">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="badge" id="notifBadge"></span>
+        </button>
+        <button class="icon-btn theme-btn" onclick="toggleTheme()" title="Toggle theme">
+          <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-transition">
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-slider" id="heroSlider"></div>
+      </div>
+    </section>
+
+    <section class="trending-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title" data-badge="Hot">Trending Phones in Gaighat</h2>
+            <p class="section-subtitle">Most popular smartphones this week at Dhurba Mobile</p>
+          </div>
+        </div>
+        <div class="carousel-container">
+          <div class="carousel-track" id="trendingTrack"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Shop by Brand</h2>
+            <p class="section-subtitle">Browse phones from your favorite brands</p>
+          </div>
+        </div>
+        <div class="brand-filters" id="brandFilters"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">All Mobile Phones in Gaighat</h2>
+            <p class="section-subtitle">Browse new, refurbished, and second hand phones from top brands</p>
+          </div>
+          <div class="section-actions">
+            <select class="filter-select" id="sortSelect" onchange="sortProducts()">
+              <option value="default">Default</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="latest">Latest Added</option>
+            </select>
+          </div>
+        </div>
+        <div class="category-tabs" id="categoryTabs"></div>
+        <div class="product-toolbar">
+          <div class="search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="searchInput" placeholder="Search products..." oninput="filterProducts()">
+          </div>
+          <select class="filter-select" id="stockFilter" onchange="filterProducts()">
+            <option value="all">All Stock</option>
+            <option value="in-stock">In Stock</option>
+            <option value="out-of-stock">Out of Stock</option>
+          </select>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section class="section featured-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Refurbished &amp; Second Hand Phones in Gaighat</h2>
+            <p class="section-subtitle">Quality assured pre-owned devices with warranty â€” available at Dhurba Mobile</p>
+          </div>
+        </div>
+        <div class="featured-grid">
+          <div class="featured-card">
+            <div class="featured-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Refurbished Phones</h3>
+            <p>Professionally restored devices with warranty. Like new condition, fraction of the price.</p>
+            <span class="featured-tag tag-warranty">6 Month Warranty</span>
+          </div>
+          <div class="featured-card">
+            <div class="featured-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Second Hand Phones</h3>
+            <p>Carefully inspected pre-owned phones at great value. Each device is fully tested.</p>
+            <span class="featured-tag tag-condition">Verified Quality</span>
+          </div>
+          <div class="featured-card">
+            <div class="featured-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Accessories</h3>
+            <p>Premium cases, chargers, earphones, and more to complement your device.</p>
+            <span class="featured-tag tag-warranty">Official Products</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Featured Promotions</h2>
+            <p class="section-subtitle">Exclusive offers and deals</p>
+          </div>
+        </div>
+        <div class="promo-grid" id="promoGrid">
+          <div class="loading-spinner"><div class="spinner"></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <div class="specs-overlay" id="specsOverlay" onclick="closeSpecsModal()"></div>
+  <div class="specs-modal" id="specsModal">
+    <div class="specs-modal-header">
+      <h3 id="specsModalTitle">Specifications</h3>
+      <button class="specs-modal-close" onclick="closeSpecsModal()">&times;</button>
+    </div>
+    <div class="specs-modal-body" id="specsModalBody"></div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+
+</body>
+</html>
