@@ -46,7 +46,7 @@ function fetchTimeout(url, ms, opts) {
 }
 
 function sheets_getAll(sheetName) {
-  return fetchTimeout(SHEETS_API_URL + '?action=getAll&sheet=' + encodeURIComponent(sheetName))
+  return fetchTimeout(SHEETS_API_URL + '?action=getAll&sheet=' + encodeURIComponent(sheetName) + '&_=' + Date.now())
     .then(function (r) { return r.json(); });
 }
 
